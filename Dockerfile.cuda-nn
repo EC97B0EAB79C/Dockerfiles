@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/cuda:12.6.1-cudnn-devel-ubuntu22.04
+FROM nvcr.io/nvidia/tensorflow:24.08-tf2-py3
 
 RUN apt-get update && apt-get install -y \
     python3.10 python3.10-dev python3.10-distutils python3-pip git wget curl \
@@ -8,7 +8,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
     && update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 RUN pip install --upgrade pip
 
-RUN pip install torch==2.0.1 torchvision torchaudio
-RUN pip install onnx==1.16.1
-RUN pip install onnxruntime==1.18.0
-RUN pip install tensorflow==2.12.1
+
+RUN pip install torch==2.4.1 torchvision torchaudio
+RUN pip install onnx==1.16.2
+RUN pip install onnxruntime==1.19.2
